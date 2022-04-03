@@ -4,13 +4,20 @@ jobs:
   show-version:
     runs-on: ubuntu-latest
     steps:
-      - python -V
-      - docker -v
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: python -V
+      - run: docker -v
+      
   test:
     runs-on: ubuntu-latest
     steps:
-      - pylint app.py
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: pylint app.py
   build-image:
     runs-on: ubuntu-latest
     steps: 
-      - docker build --tag test-flask-app .
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: docker build --tag test-flask-app .
