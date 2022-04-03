@@ -14,4 +14,3 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - docker build --tag test-flask-app .
-	
